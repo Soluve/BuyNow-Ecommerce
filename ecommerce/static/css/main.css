@@ -11,7 +11,10 @@ body{
   font-weight: 500;
   font-style: normal;
 }
-
+.search{
+	width: 50%;
+	padding: 10px 20px;
+}
 .logo{
 	color: rgb(53, 23, 1);
 	text-transform: capitalize;
@@ -126,6 +129,7 @@ h1,h2,h3,h4,h5,h6{
 	height: 40px;
 	border-radius: 50%;
 	font-size: 30px;
+	margin: 0 auto;
 }
 .wrap-box{
 	padding: 10px;
@@ -186,6 +190,8 @@ h1,h2,h3,h4,h5,h6{
 	display: none!important;
 }
 
-/* @media screen and (max-width: ){
-	
-} */
+@media screen and (max-width: 767px){
+	#cart-total{
+		margin: 0;
+	}
+}

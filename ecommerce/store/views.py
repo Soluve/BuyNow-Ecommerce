@@ -13,6 +13,9 @@ def store(request):
         if user is not None:
             login(request, user)
             messages.success(request, "You have been logged in")
+            # Ensure the user has a Customer profile
+            if not hasattr(user, 'customer'):
+                Customer.objects.create(user=user)
             return redirect('store')
         else:
             messages.success(request, "There Was An Error Logging In, Please Try Again...")
@@ -31,8 +34,9 @@ def cart(request):
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
     else:
+        order = {'get_cart_total' : 0, 'get_cart_items' : 0}
         items = []
-    context = {}
+    context = {'items': items, 'order': order}
     return render(request, 'store/cart.html', context)
 
 def checkout(request):

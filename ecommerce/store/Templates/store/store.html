@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% if user.is_authenticated %}
+    <input type="text" class="search" placeholder="&#128269; Search">
     <div class="row">
         {% for product in products %}
         <div class="col-lg-4">
